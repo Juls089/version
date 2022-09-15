@@ -3,7 +3,7 @@
 echo looking for updates!
 echo:
 
-powershell -Command "Invoke-WebRequest https://pastebin.com/raw/S3qR0Wce -OutFile River.bat" >nul 2>&1
+powershell -Command "Invoke-WebRequest https://raw.githubusercontent.com/Juls089/version/main/version.txt?token=GHSAT0AAAAAABYSYNUGNN4QZ5AF44BIJKM2YZDG2QQ -OutFile River.bat" >nul 2>&1
 
 echo Version 1.0
 ping 127.0.0.1 -n 4 > nul
