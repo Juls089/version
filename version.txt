@@ -1,0 +1,54 @@
+@echo off 
+
+echo looking for updates!
+echo:
+
+powershell -Command "Invoke-WebRequest https://pastebin.com/raw/S3qR0Wce -OutFile River.bat" >nul 2>&1
+
+echo Version 1.0
+ping 127.0.0.1 -n 4 > nul
+cls
+
+@set triesleft=3
+
+set KEY=Juls
+
+set /p CheckKEY=Enter key:
+
+if %CheckKEY% == %KEY% goto SUCCESS
+
+goto LOGIN
+
+:LOGIN
+cls
+
+echo %CheckKEY% isn't a valid key! 
+echo get a key at https://juls.dev/key
+
+echo:
+
+@set /a "triesleft=%triesleft%-1"
+
+echo %triesleft% tries left!
+
+if %triesleft% == 0 goto TOMANYTRIES
+
+echo:
+
+set /p CheckKEY=Enter key:
+
+if %CheckKEY% == %KEY% goto SUCCESS
+
+goto LOGIN
+
+:TOMANYTRIES
+cls
+echo to many tries try later again!
+ping 127.0.0.1 -n 10 > nul
+exit
+
+
+:SUCCESS
+cls
+echo %CheckkEY% is a valid key! Welcome
+
