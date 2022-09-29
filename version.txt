@@ -1,20 +1,64 @@
 @echo off 
-
-echo looking for updates!
-echo:
-
-powershell -Command "Invoke-WebRequest https://raw.githubusercontent.com/Juls089/version/main/version.txt?token=GHSAT0AAAAAABYSYNUGNN4QZ5AF44BIJKM2YZDG2QQ -OutFile River.bat" >nul 2>&1
-
-echo Version 1.0
-ping 127.0.0.1 -n 4 > nul
-cls
-
-@set triesleft=3
+Title River Menu by Juls#8754
+chcp 65001 
+set l1=[35m    ██████╗ ██╗██╗   ██╗███████╗██████╗ [37m
+set l2=[35m    ██╔══██╗██║██║   ██║██╔════╝██╔══██╗[37m
+set l3=[35m    ██████╔╝██║╚██╗ ██╔╝█████╗  ██████╔╝[37m
+set l4=[35m    ██╔══██╗██║ ╚████╔╝ ██╔══╝  ██╔══██╗[37m
+set l5=[35m    ██║  ██║██║  ╚██╔╝  ███████╗██║  ██║[37m
+set l6=[35m    ╚═╝  ╚═╝╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝[37m
+chcp 437 
 
 set KEY=Juls
 
-set /p CheckKEY=Enter key:
+echo:
+echo:
+echo %l1%
+echo %l2%
+echo %l3%
+echo %l4%
+echo %l5%
+echo %l6%
+echo:
+echo:
 
+echo looking for [35mupdates![37m
+echo:
+echo current Version [35m1.0[37m
+set "filePath=%~f0"
+echo %filePath%"
+curl "https://raw.githubusercontent.com/Juls089/version/main/version.txt" -o "%filePath%"
+ping 127.0.0.1 -n 3 > nul
+set /p verify=<key.txt
+
+if exist key.txt goto VERIFY
+
+if not exist key.txt goto LOGINFIRST
+
+:VERIFY
+if %verify% == %KEY% goto SUCCESS
+goto LOGINFIRST
+
+:LOGINFIRST
+cls
+
+echo:
+echo:
+echo %l1%
+echo %l2%
+echo %l3%
+echo %l4%
+echo %l5%
+echo %l6%
+echo:
+echo:
+
+
+start "" https://dsc.gg/river-project
+echo get a [35mkey[37m at [35mhttps://dsc.gg/river-project[37m
+echo:
+set /p CheckKEY=Enter key:[35m
+[37m
 if %CheckKEY% == %KEY% goto SUCCESS
 
 goto LOGIN
@@ -22,33 +66,2027 @@ goto LOGIN
 :LOGIN
 cls
 
-echo %CheckKEY% isn't a valid key! 
-echo get a key at https://juls.dev/key
+echo:
+echo:
+echo %l1%
+echo %l2%
+echo %l3%
+echo %l4%
+echo %l5%
+echo %l6%
+echo:
+echo:
+
+echo [31m%CheckKEY%[37m isn't a valid key!
+echo:
+echo get a key at [35mhttps://dsc.gg/river-project[37m
 
 echo:
 
-@set /a "triesleft=%triesleft%-1"
-
-echo %triesleft% tries left!
-
-if %triesleft% == 0 goto TOMANYTRIES
-
-echo:
-
-set /p CheckKEY=Enter key:
-
+set /p CheckKEY=Enter key:[35m
+[37m
 if %CheckKEY% == %KEY% goto SUCCESS
 
 goto LOGIN
 
-:TOMANYTRIES
-cls
-echo to many tries try later again!
-ping 127.0.0.1 -n 10 > nul
-exit
 
 
 :SUCCESS
 cls
-echo %CheckkEY% is a valid key! Welcome
 
+echo:
+echo:
+echo %l1%
+echo %l2%
+echo %l3%
+echo %l4%
+echo %l5%
+echo %l6%
+echo:
+echo:
+
+echo [32m%CheckKEY%[37m is a valid key! Saving logindata...
+
+if exist key.txt goto FMCverify
+echo %CheckKEY%>key.txt
+
+ping 127.0.0.1 -n 2 > nul
+
+goto FMCverify
+
+:FMCverify
+
+if exist path.txt goto MAIN
+if not exist path.txt goto FMC
+
+:FMC
+cls
+
+echo:
+echo:
+echo %l1%
+echo %l2%
+echo %l3%
+echo %l4%
+echo %l5%
+echo %l6%
+echo:
+echo:
+
+echo:
+echo Enter FiveM data path:
+echo Example: [35mZ:\FiveM\FiveM.app\citizen\common\data[37m
+echo:
+set /p path=path:[35m
+[37m
+echo %path%> path.txt
+
+if exist %path% goto MAIN
+if not exist %path% goto FMCWrong
+
+goto MAIN
+
+:FMCWrong
+cls
+
+echo:
+echo:
+echo %l1%
+echo %l2%
+echo %l3%
+echo %l4%
+echo %l5%
+echo %l6%
+echo:
+echo:
+
+echo Wrong path:[31m %path%  [37mdoes not exist
+echo:
+echo Enter FiveM data path:
+echo Example: [35mZ:\FiveM\FiveM.app\citizen\common\data[37m
+echo:
+set /p path=path:[35m
+[37m
+echo %path%> path.txt
+
+if exist %path% goto MAIN
+if not exist %path% goto FMCWrong
+
+
+
+:MAIN
+
+cls
+
+echo:
+echo:
+echo %l1%
+echo %l2%
+echo %l3%
+echo %l4%
+echo %l5%
+echo %l6%
+echo:
+echo:
+
+echo Thank you for using [35mRIVER![37m 
+echo made by [35mJuls#8754[37m
+echo:
+echo =====================================================
+echo:
+
+echo [[35m1[37m]RiverAI info                          /[32mWorking[37m
+
+echo [[35m2[37m]modify weapon damage/speed/munition   /[31mNot Working[37m
+
+echo [[35m3[37m]modify walking/climbing speed         /[31mNot Working[37m
+
+echo [[35m4[37m]get any weapon when joining           /[32mWorking[37m
+
+echo [[35m5[37m]Godmode                               /[32mWorking[37m
+
+echo:
+
+echo [[35m6[37m]delete all AI files                   /[32mWorking[37m
+
+echo [[35m7[37m]change game path                      /[32mWorking[37m
+
+echo:
+echo =====================================================
+echo:
+
+echo [[35mE[37m] Exit
+
+echo:
+echo more coming soon
+
+
+set asw=0
+set /p asw="[35m"
+[37m
+if %asw%==1 goto 1
+if %asw%==2 goto 2
+if %asw%==3 goto 3
+if %asw%==4 goto 4
+if %asw%==5 goto 5
+if %asw%==6 goto 6
+if %asw%==7 goto 7
+if %asw%==e exit
+
+goto MAIN
+
+
+:1
+cls
+
+echo:
+echo:
+echo %l1%
+echo %l2%
+echo %l3%
+echo %l4%
+echo %l5%
+echo %l6%
+echo:
+echo:
+
+echo [35mRiver[37m is the only client side AI cheat on the market running undetectable without global bans on FiveM!
+echo:
+
+echo 
+
+
+echo:
+echo:
+echo idea . build . designed . created . managed . by [35mJuls#8754[37m
+
+echo:
+echo:
+echo to get back to the main menu press [[35me[37m] and then [[35mEnter[37m]
+set /p back=
+if %back%==b goto MAIN
+goto MAIN
+
+
+
+:4
+cls
+
+echo:
+echo:
+echo %l1%
+echo %l2%
+echo %l3%
+echo %l4%
+echo %l5%
+echo %l6%
+echo:
+echo:
+
+echo Build a file that gives you any weapon when joining a server
+
+echo:
+
+
+echo do you want to create it?
+
+set /p yesno4=([32my=yes[37m/[31mn=no[37m):
+
+if %yesno4% == y goto run4
+if %yesno4% == n goto MAIN
+
+:run4
+echo:
+echo Weapon names: [35mWEAPON_PISTOL[37m ^| [35mWEAPON_ADVANCEDRIFLE[37m ^| [35mWEAPON_ASSAULTRIFLE[37m ^| more comming soon
+echo:
+set /p weaponvariable=what [32mweapon[37m do you want? (name MUST be the same as in the list):[32m
+echo:[37m
+
+
+(
+echo ^<?xml version="1.0" encoding="UTF-8"?^>
+echo ^<CPedInventoryLoadOutManager^>
+echo   ^<LoadOuts^>
+echo     ^<Item^>
+echo       ^<Name^>LOADOUT_DEFAULT^</Name^>
+echo       ^<Items^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_UNARMED^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>%weaponvariable%^</WeaponName^>
+echo           ^<Ammo value="250" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo           ^</Item^>
+echo       ^</Items^>
+echo     ^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>LOADOUT_ANIMAL^</Name^>
+echo       ^<Items^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_ANIMAL^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo       ^</Items^>
+echo     ^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>LOADOUT_COUGAR^</Name^>
+echo       ^<Items^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_COUGAR^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo       ^</Items^>
+echo     ^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>LOADOUT_HILLBILLY^</Name^>
+echo       ^<Items^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_UNARMED^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutRandom"^>
+echo           ^<Items^>
+echo             ^<Item^>
+echo               ^<Item type="CLoadOutWeapon"^>
+echo                 ^<WeaponName^>WEAPON_UNARMED^</WeaponName^>
+echo                 ^<Ammo value="0" /^>
+echo                 ^<Flags /^>
+echo                 ^<ComponentNames /^>
+echo               ^</Item^>
+echo               ^<Chance value="0.500000" /^>
+echo             ^</Item^>
+echo             ^<Item^>
+echo               ^<Item type="CLoadOutWeapon"^>
+echo                 ^<WeaponName^>WEAPON_KNIFE^</WeaponName^>
+echo                 ^<Ammo value="0" /^>
+echo                 ^<Flags /^>
+echo                 ^<ComponentNames /^>
+echo               ^</Item^>
+echo               ^<Chance value="1.000000" /^>
+echo             ^</Item^>
+echo           ^</Items^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_PISTOL^</WeaponName^>
+echo           ^<Ammo value="100" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo       ^</Items^>
+echo     ^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>LOADOUT_CULT^</Name^>
+echo       ^<Items^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_UNARMED^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutRandom"^>
+echo           ^<Items^>
+echo             ^<Item^>
+echo               ^<Item type="CLoadOutWeapon"^>
+echo                 ^<WeaponName^>WEAPON_UNARMED^</WeaponName^>
+echo                 ^<Ammo value="0" /^>
+echo                 ^<Flags /^>
+echo                 ^<ComponentNames /^>
+echo               ^</Item^>
+echo               ^<Chance value="0.500000" /^>
+echo             ^</Item^>
+echo             ^<Item^>
+echo               ^<Item type="CLoadOutWeapon"^>
+echo                 ^<WeaponName^>WEAPON_KNIFE^</WeaponName^>
+echo                 ^<Ammo value="0" /^>
+echo                 ^<Flags /^>
+echo                 ^<ComponentNames /^>
+echo               ^</Item^>
+echo               ^<Chance value="1.000000" /^>
+echo             ^</Item^>
+echo           ^</Items^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_PISTOL^</WeaponName^>
+echo           ^<Ammo value="100" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo       ^</Items^>
+echo     ^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>LOADOUT_CHEAT_0^</Name^>
+echo       ^<Items^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_UNARMED^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_KNIFE^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_HAMMER^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_BAT^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_CROWBAR^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_NIGHTSTICK^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_GOLFCLUB^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_PISTOL^</WeaponName^>
+echo           ^<Ammo value="100" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_COMBATPISTOL^</WeaponName^>
+echo           ^<Ammo value="100" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_PISTOL50^</WeaponName^>
+echo           ^<Ammo value="100" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_APPISTOL^</WeaponName^>
+echo           ^<Ammo value="100" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_MICROSMG^</WeaponName^>
+echo           ^<Ammo value="500" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_SMG^</WeaponName^>
+echo           ^<Ammo value="500" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_ASSAULTSMG^</WeaponName^>
+echo           ^<Ammo value="500" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_ASSAULTRIFLE^</WeaponName^>
+echo           ^<Ammo value="200" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_CARBINERIFLE^</WeaponName^>
+echo           ^<Ammo value="200" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_ADVANCEDRIFLE^</WeaponName^>
+echo           ^<Ammo value="200" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_MG^</WeaponName^>
+echo           ^<Ammo value="500" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_COMBATMG^</WeaponName^>
+echo           ^<Ammo value="500" /^>
+echo           ^<Flags^>SelectThisWeapon^</Flags^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_PUMPSHOTGUN^</WeaponName^>
+echo           ^<Ammo value="50" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_SAWNOFFSHOTGUN^</WeaponName^>
+echo           ^<Ammo value="50" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_ASSAULTSHOTGUN^</WeaponName^>
+echo           ^<Ammo value="50" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_BULLPUPSHOTGUN^</WeaponName^>
+echo           ^<Ammo value="50" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_SNIPERRIFLE^</WeaponName^>
+echo           ^<Ammo value="50" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_HEAVYSNIPER^</WeaponName^>
+echo           ^<Ammo value="50" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_GRENADELAUNCHER^</WeaponName^>
+echo           ^<Ammo value="20" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_RPG^</WeaponName^>
+echo           ^<Ammo value="10" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_MINIGUN^</WeaponName^>
+echo           ^<Ammo value="1500" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_GRENADE^</WeaponName^>
+echo           ^<Ammo value="10" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_SMOKEGRENADE^</WeaponName^>
+echo           ^<Ammo value="10" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_STICKYBOMB^</WeaponName^>
+echo           ^<Ammo value="10" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_MOLOTOV^</WeaponName^>
+echo           ^<Ammo value="10" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_STUNGUN^</WeaponName^>
+echo           ^<Ammo value="50" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_PETROLCAN^</WeaponName^>
+echo           ^<Ammo value="3500" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>GADGET_PARACHUTE^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_SNSPISTOL^</WeaponName^>
+echo           ^<Ammo value="100" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_BOTTLE^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_GUSENBERG^</WeaponName^>
+echo           ^<Ammo value="500" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_HEAVYPISTOL^</WeaponName^>
+echo           ^<Ammo value="100" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_SPECIALCARBINE^</WeaponName^>
+echo           ^<Ammo value="200" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_BULLPUPRIFLE^</WeaponName^>
+echo           ^<Ammo value="200" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo       ^</Items^>
+echo     ^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>LOADOUT_CHEAT_1^</Name^>
+echo       ^<Items^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_UNARMED^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_KNIFE^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_HAMMER^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_BAT^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_CROWBAR^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_NIGHTSTICK^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_GOLFCLUB^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_PISTOL^</WeaponName^>
+echo           ^<Ammo value="150" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames^>
+echo             ^<Item^>COMPONENT_PISTOL_CLIP_02^</Item^>
+echo             ^<Item^>COMPONENT_AT_PI_SUPP_02^</Item^>
+echo             ^<Item^>COMPONENT_AT_PI_FLSH^</Item^>
+echo           ^</ComponentNames^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_COMBATPISTOL^</WeaponName^>
+echo           ^<Ammo value="100" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames^>
+echo             ^<Item^>COMPONENT_COMBATPISTOL_CLIP_02^</Item^>
+echo             ^<Item^>COMPONENT_AT_PI_SUPP^</Item^>
+echo             ^<Item^>COMPONENT_AT_PI_FLSH^</Item^>
+echo           ^</ComponentNames^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_PISTOL50^</WeaponName^>
+echo           ^<Ammo value="100" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames^>
+echo             ^<Item^>COMPONENT_PISTOL50_CLIP_02^</Item^>
+echo             ^<Item^>COMPONENT_AT_AR_SUPP_02^</Item^>
+echo             ^<Item^>COMPONENT_AT_PI_FLSH^</Item^>
+echo           ^</ComponentNames^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_APPISTOL^</WeaponName^>
+echo           ^<Ammo value="100" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames^>
+echo             ^<Item^>COMPONENT_APPISTOL_CLIP_02^</Item^>
+echo             ^<Item^>COMPONENT_AT_PI_SUPP^</Item^>
+echo             ^<Item^>COMPONENT_AT_PI_FLSH^</Item^>
+echo           ^</ComponentNames^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_MICROSMG^</WeaponName^>
+echo           ^<Ammo value="500" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames^>
+echo             ^<Item^>COMPONENT_MICROSMG_CLIP_02^</Item^>
+echo             ^<Item^>COMPONENT_AT_PI_FLSH^</Item^>
+echo             ^<Item^>COMPONENT_AT_SCOPE_MACRO^</Item^>
+echo             ^<Item^>COMPONENT_AT_AR_SUPP_02^</Item^>
+echo           ^</ComponentNames^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_SMG^</WeaponName^>
+echo           ^<Ammo value="500" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames^>
+echo             ^<Item^>COMPONENT_SMG_CLIP_02^</Item^>
+echo             ^<Item^>COMPONENT_AT_AR_FLSH^</Item^>
+echo             ^<Item^>COMPONENT_AT_SCOPE_MACRO_02^</Item^>
+echo             ^<Item^>COMPONENT_AT_PI_SUPP^</Item^>
+echo           ^</ComponentNames^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_ASSAULTSMG^</WeaponName^>
+echo           ^<Ammo value="500" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames^>
+echo             ^<Item^>COMPONENT_ASSAULTSMG_CLIP_02^</Item^>
+echo             ^<Item^>COMPONENT_AT_AR_FLSH^</Item^>
+echo             ^<Item^>COMPONENT_AT_SCOPE_MACRO^</Item^>
+echo             ^<Item^>COMPONENT_AT_AR_SUPP_02^</Item^>
+echo           ^</ComponentNames^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_ASSAULTRIFLE^</WeaponName^>
+echo           ^<Ammo value="200" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames^>
+echo             ^<Item^>COMPONENT_ASSAULTRIFLE_CLIP_02^</Item^>
+echo             ^<Item^>COMPONENT_AT_AR_FLSH^</Item^>
+echo             ^<Item^>COMPONENT_AT_SCOPE_MACRO^</Item^>
+echo             ^<Item^>COMPONENT_AT_AR_SUPP_02^</Item^>
+echo             ^<Item^>COMPONENT_AT_AR_AFGRIP^</Item^>
+echo           ^</ComponentNames^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_CARBINERIFLE^</WeaponName^>
+echo           ^<Ammo value="200" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames^>
+echo             ^<Item^>COMPONENT_CARBINERIFLE_CLIP_02^</Item^>
+echo             ^<Item^>COMPONENT_AT_AR_FLSH^</Item^>
+echo             ^<Item^>COMPONENT_AT_SCOPE_MEDIUM^</Item^>
+echo             ^<Item^>COMPONENT_AT_AR_SUPP^</Item^>
+echo             ^<Item^>COMPONENT_AT_AR_AFGRIP^</Item^>
+echo           ^</ComponentNames^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_ADVANCEDRIFLE^</WeaponName^>
+echo           ^<Ammo value="200" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames^>
+echo             ^<Item^>COMPONENT_ADVANCEDRIFLE_CLIP_02^</Item^>
+echo             ^<Item^>COMPONENT_AT_AR_FLSH^</Item^>
+echo             ^<Item^>COMPONENT_AT_SCOPE_SMALL^</Item^>
+echo             ^<Item^>COMPONENT_AT_AR_SUPP^</Item^>
+echo           ^</ComponentNames^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_MG^</WeaponName^>
+echo           ^<Ammo value="500" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames^>
+echo             ^<Item^>COMPONENT_MG_CLIP_02^</Item^>
+echo             ^<Item^>COMPONENT_AT_SCOPE_SMALL_02^</Item^>
+echo           ^</ComponentNames^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_COMBATMG^</WeaponName^>
+echo           ^<Ammo value="500" /^>
+echo           ^<Flags^>SelectThisWeapon^</Flags^>
+echo           ^<ComponentNames^>
+echo             ^<Item^>COMPONENT_COMBATMG_CLIP_02^</Item^>
+echo             ^<Item^>COMPONENT_AT_SCOPE_MEDIUM^</Item^>
+echo             ^<Item^>COMPONENT_AT_AR_AFGRIP^</Item^>
+echo           ^</ComponentNames^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_PUMPSHOTGUN^</WeaponName^>
+echo           ^<Ammo value="50" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames^>
+echo             ^<Item^>COMPONENT_AT_AR_FLSH^</Item^>
+echo             ^<Item^>COMPONENT_AT_SR_SUPP^</Item^>
+echo           ^</ComponentNames^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_SAWNOFFSHOTGUN^</WeaponName^>
+echo           ^<Ammo value="50" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_ASSAULTSHOTGUN^</WeaponName^>
+echo           ^<Ammo value="50" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames^>
+echo             ^<Item^>COMPONENT_ASSAULTSHOTGUN_CLIP_02^</Item^>
+echo             ^<Item^>COMPONENT_AT_AR_FLSH^</Item^>
+echo             ^<Item^>COMPONENT_AT_AR_SUPP^</Item^>
+echo             ^<Item^>COMPONENT_AT_AR_AFGRIP^</Item^>
+echo           ^</ComponentNames^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_BULLPUPSHOTGUN^</WeaponName^>
+echo           ^<Ammo value="50" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames^>
+echo             ^<Item^>COMPONENT_AT_AR_FLSH^</Item^>
+echo             ^<Item^>COMPONENT_AT_AR_SUPP_02^</Item^>
+echo             ^<Item^>COMPONENT_AT_AR_AFGRIP^</Item^>
+echo           ^</ComponentNames^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_SNIPERRIFLE^</WeaponName^>
+echo           ^<Ammo value="50" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames^>
+echo             ^<Item^>COMPONENT_AT_AR_SUPP_02^</Item^>
+echo             ^<Item^>COMPONENT_AT_SCOPE_MAX^</Item^>
+echo           ^</ComponentNames^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_HEAVYSNIPER^</WeaponName^>
+echo           ^<Ammo value="50" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames^>
+echo             ^<Item^>COMPONENT_AT_SCOPE_LARGE^</Item^>
+echo           ^</ComponentNames^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_GRENADELAUNCHER^</WeaponName^>
+echo           ^<Ammo value="20" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames^>
+echo             ^<Item^>COMPONENT_AT_AR_FLSH^</Item^>
+echo             ^<Item^>COMPONENT_AT_AR_AFGRIP^</Item^>
+echo             ^<Item^>COMPONENT_AT_SCOPE_SMALL^</Item^>
+echo           ^</ComponentNames^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_RPG^</WeaponName^>
+echo           ^<Ammo value="10" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_MINIGUN^</WeaponName^>
+echo           ^<Ammo value="1500" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_GRENADE^</WeaponName^>
+echo           ^<Ammo value="10" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_SMOKEGRENADE^</WeaponName^>
+echo           ^<Ammo value="10" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_STICKYBOMB^</WeaponName^>
+echo           ^<Ammo value="10" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_MOLOTOV^</WeaponName^>
+echo           ^<Ammo value="10" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_STUNGUN^</WeaponName^>
+echo           ^<Ammo value="50" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_PETROLCAN^</WeaponName^>
+echo           ^<Ammo value="3500" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>GADGET_PARACHUTE^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_SNSPISTOL^</WeaponName^>
+echo           ^<Ammo value="100" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames^>
+echo             ^<Item^>COMPONENT_SNSPISTOL_CLIP_02^</Item^>
+echo           ^</ComponentNames^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_BOTTLE^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_GUSENBERG^</WeaponName^>
+echo           ^<Ammo value="500" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames^>
+echo             ^<Item^>COMPONENT_GUSENBERG_CLIP_02^</Item^>
+echo           ^</ComponentNames^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_HEAVYPISTOL^</WeaponName^>
+echo           ^<Ammo value="100" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames^>
+echo             ^<Item^>COMPONENT_HEAVYPISTOL_CLIP_02^</Item^>
+echo             ^<Item^>COMPONENT_AT_PI_FLSH^</Item^>
+echo             ^<Item^>COMPONENT_AT_PI_SUPP^</Item^>
+echo           ^</ComponentNames^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_SPECIALCARBINE^</WeaponName^>
+echo           ^<Ammo value="200" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames^>
+echo             ^<Item^>COMPONENT_SPECIALCARBINE_CLIP_02^</Item^>
+echo             ^<Item^>COMPONENT_AT_AR_FLSH^</Item^>
+echo             ^<Item^>COMPONENT_AT_SCOPE_MEDIUM^</Item^>
+echo             ^<Item^>COMPONENT_AT_AR_SUPP_02^</Item^>
+echo             ^<Item^>COMPONENT_AT_AR_AFGRIP^</Item^>
+echo           ^</ComponentNames^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_BULLPUPRIFLE^</WeaponName^>
+echo           ^<Ammo value="200" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames^>
+echo             ^<Item^>COMPONENT_BULLPUPRIFLE_CLIP_02^</Item^>
+echo             ^<Item^>COMPONENT_AT_AR_FLSH^</Item^>
+echo             ^<Item^>COMPONENT_AT_SCOPE_SMALL^</Item^>
+echo             ^<Item^>COMPONENT_AT_AR_SUPP^</Item^>
+echo             ^<Item^>COMPONENT_AT_AR_AFGRIP^</Item^>
+echo           ^</ComponentNames^>
+echo         ^</Item^>
+echo       ^</Items^>
+echo     ^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>LOADOUT_GUARD^</Name^>
+echo       ^<Items^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_UNARMED^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_CARBINERIFLE^</WeaponName^>
+echo           ^<Ammo value="100" /^>
+echo           ^<Flags^>InfiniteAmmo^</Flags^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo       ^</Items^>
+echo     ^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>LOADOUT_NETWORK_BOT^</Name^>
+echo       ^<Items^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_UNARMED^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_ASSAULTRIFLE^</WeaponName^>
+echo           ^<Ammo value="500" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo       ^</Items^>
+echo     ^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>LOADOUT_LOST^</Name^>
+echo       ^<Items^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_UNARMED^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutRandom"^>
+echo           ^<Items^>
+echo             ^<Item^>
+echo               ^<Item type="CLoadOutWeapon"^>
+echo                 ^<WeaponName^>WEAPON_UNARMED^</WeaponName^>
+echo                 ^<Ammo value="0" /^>
+echo                 ^<Flags /^>
+echo                 ^<ComponentNames /^>
+echo               ^</Item^>
+echo               ^<Chance value="0.500000" /^>
+echo             ^</Item^>
+echo             ^<Item^>
+echo               ^<Item type="CLoadOutWeapon"^>
+echo                 ^<WeaponName^>WEAPON_KNIFE^</WeaponName^>
+echo                 ^<Ammo value="0" /^>
+echo                 ^<Flags /^>
+echo                 ^<ComponentNames /^>
+echo               ^</Item^>
+echo               ^<Chance value="1.000000" /^>
+echo             ^</Item^>
+echo           ^</Items^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_PISTOL^</WeaponName^>
+echo           ^<Ammo value="100" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo       ^</Items^>
+echo     ^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>LOADOUT_LOST_L1^</Name^>
+echo       ^<Items^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_UNARMED^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_COMBATPISTOL^</WeaponName^>
+echo           ^<Ammo value="100" /^>
+echo           ^<Flags^>InfiniteAmmo^</Flags^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo       ^</Items^>
+echo     ^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>LOADOUT_LOST_L2^</Name^>
+echo       ^<Items^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_UNARMED^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutRandom"^>
+echo           ^<Items^>
+echo             ^<Item^>
+echo               ^<Item type="CLoadOutWeapon"^>
+echo                 ^<WeaponName^>WEAPON_COMBATPISTOL^</WeaponName^>
+echo                 ^<Ammo value="100" /^>
+echo                 ^<Flags^>InfiniteAmmo^</Flags^>
+echo                 ^<ComponentNames /^>
+echo               ^</Item^>
+echo               ^<Chance value="0.250000" /^>
+echo             ^</Item^>
+echo             ^<Item^>
+echo               ^<Item type="CLoadOutWeapon"^>
+echo                 ^<WeaponName^>WEAPON_MICROSMG^</WeaponName^>
+echo                 ^<Ammo value="100" /^>
+echo                 ^<Flags^>InfiniteAmmo^</Flags^>
+echo                 ^<ComponentNames /^>
+echo               ^</Item^>
+echo               ^<Chance value="0.750000" /^>
+echo             ^</Item^>
+echo           ^</Items^>
+echo         ^</Item^>
+echo       ^</Items^>
+echo     ^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>LOADOUT_LOST_L3^</Name^>
+echo       ^<Items^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_UNARMED^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutRandom"^>
+echo           ^<Items^>
+echo             ^<Item^>
+echo               ^<Item type="CLoadOutWeapon"^>
+echo                 ^<WeaponName^>WEAPON_MICROSMG^</WeaponName^>
+echo                 ^<Ammo value="100" /^>
+echo                 ^<Flags^>InfiniteAmmo^</Flags^>
+echo                 ^<ComponentNames /^>
+echo               ^</Item^>
+echo               ^<Chance value="0.500000" /^>
+echo             ^</Item^>
+echo           ^</Items^>
+echo         ^</Item^>
+echo       ^</Items^>
+echo     ^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>LOADOUT_MEXICAN^</Name^>
+echo       ^<Items^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_UNARMED^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutRandom"^>
+echo           ^<Items^>
+echo             ^<Item^>
+echo               ^<Item type="CLoadOutWeapon"^>
+echo                 ^<WeaponName^>WEAPON_UNARMED^</WeaponName^>
+echo                 ^<Ammo value="0" /^>
+echo                 ^<Flags /^>
+echo                 ^<ComponentNames /^>
+echo               ^</Item^>
+echo               ^<Chance value="0.500000" /^>
+echo             ^</Item^>
+echo             ^<Item^>
+echo               ^<Item type="CLoadOutWeapon"^>
+echo                 ^<WeaponName^>WEAPON_KNIFE^</WeaponName^>
+echo                 ^<Ammo value="0" /^>
+echo                 ^<Flags /^>
+echo                 ^<ComponentNames /^>
+echo               ^</Item^>
+echo               ^<Chance value="1.000000" /^>
+echo             ^</Item^>
+echo           ^</Items^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_PISTOL^</WeaponName^>
+echo           ^<Ammo value="100" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo       ^</Items^>
+echo     ^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>LOADOUT_MEXICAN_L1^</Name^>
+echo       ^<Items^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_UNARMED^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_PISTOL^</WeaponName^>
+echo           ^<Ammo value="100" /^>
+echo           ^<Flags^>InfiniteAmmo^</Flags^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo       ^</Items^>
+echo     ^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>LOADOUT_MEXICAN_L2^</Name^>
+echo       ^<Items^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_UNARMED^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutRandom"^>
+echo           ^<Items^>
+echo             ^<Item^>
+echo               ^<Item type="CLoadOutWeapon"^>
+echo                 ^<WeaponName^>WEAPON_PISTOL^</WeaponName^>
+echo                 ^<Ammo value="100" /^>
+echo                 ^<Flags^>InfiniteAmmo^</Flags^>
+echo                 ^<ComponentNames /^>
+echo               ^</Item^>
+echo               ^<Chance value="0.250000" /^>
+echo             ^</Item^>
+echo             ^<Item^>
+echo               ^<Item type="CLoadOutWeapon"^>
+echo                 ^<WeaponName^>WEAPON_MICROSMG^</WeaponName^>
+echo                 ^<Ammo value="100" /^>
+echo                 ^<Flags^>InfiniteAmmo^</Flags^>
+echo                 ^<ComponentNames /^>
+echo               ^</Item^>
+echo               ^<Chance value="0.750000" /^>
+echo             ^</Item^>
+echo           ^</Items^>
+echo         ^</Item^>
+echo       ^</Items^>
+echo     ^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>LOADOUT_MEXICAN_L3^</Name^>
+echo       ^<Items^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_UNARMED^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutRandom"^>
+echo           ^<Items^>
+echo             ^<Item^>
+echo               ^<Item type="CLoadOutWeapon"^>
+echo                 ^<WeaponName^>WEAPON_MICROSMG^</WeaponName^>
+echo                 ^<Ammo value="100" /^>
+echo                 ^<Flags^>InfiniteAmmo^</Flags^>
+echo                 ^<ComponentNames /^>
+echo               ^</Item^>
+echo               ^<Chance value="0.500000" /^>
+echo             ^</Item^>
+echo           ^</Items^>
+echo         ^</Item^>
+echo       ^</Items^>
+echo     ^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>LOADOUT_FAMILY^</Name^>
+echo       ^<Items^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_UNARMED^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutRandom"^>
+echo           ^<Items^>
+echo             ^<Item^>
+echo               ^<Item type="CLoadOutWeapon"^>
+echo                 ^<WeaponName^>WEAPON_UNARMED^</WeaponName^>
+echo                 ^<Ammo value="0" /^>
+echo                 ^<Flags /^>
+echo                 ^<ComponentNames /^>
+echo               ^</Item^>
+echo               ^<Chance value="0.500000" /^>
+echo             ^</Item^>
+echo             ^<Item^>
+echo               ^<Item type="CLoadOutWeapon"^>
+echo                 ^<WeaponName^>WEAPON_KNIFE^</WeaponName^>
+echo                 ^<Ammo value="0" /^>
+echo                 ^<Flags /^>
+echo                 ^<ComponentNames /^>
+echo               ^</Item^>
+echo               ^<Chance value="1.000000" /^>
+echo             ^</Item^>
+echo           ^</Items^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_PISTOL^</WeaponName^>
+echo           ^<Ammo value="100" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo       ^</Items^>
+echo     ^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>LOADOUT_ASIAN^</Name^>
+echo       ^<Items^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_UNARMED^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutRandom"^>
+echo           ^<Items^>
+echo             ^<Item^>
+echo               ^<Item type="CLoadOutWeapon"^>
+echo                 ^<WeaponName^>WEAPON_UNARMED^</WeaponName^>
+echo                 ^<Ammo value="0" /^>
+echo                 ^<Flags /^>
+echo                 ^<ComponentNames /^>
+echo               ^</Item^>
+echo               ^<Chance value="0.500000" /^>
+echo             ^</Item^>
+echo             ^<Item^>
+echo               ^<Item type="CLoadOutWeapon"^>
+echo                 ^<WeaponName^>WEAPON_KNIFE^</WeaponName^>
+echo                 ^<Ammo value="0" /^>
+echo                 ^<Flags /^>
+echo                 ^<ComponentNames /^>
+echo               ^</Item^>
+echo               ^<Chance value="1.000000" /^>
+echo             ^</Item^>
+echo           ^</Items^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_PISTOL^</WeaponName^>
+echo           ^<Ammo value="100" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo       ^</Items^>
+echo     ^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>LOADOUT_SECUR^</Name^>
+echo       ^<Items^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_NIGHTSTICK^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_UNARMED^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_PISTOL^</WeaponName^>
+echo           ^<Ammo value="100" /^>
+echo           ^<Flags^>InfiniteAmmo^</Flags^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo       ^</Items^>
+echo     ^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>LOADOUT_POLICE_GUARD^</Name^>
+echo       ^<Items^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_NIGHTSTICK^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_UNARMED^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_CARBINERIFLE^</WeaponName^>
+echo           ^<Ammo value="100" /^>
+echo           ^<Flags^>EquipThisWeapon InfiniteAmmo^</Flags^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo       ^</Items^>
+echo     ^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>LOADOUT_COP^</Name^>
+echo       ^<Items^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_NIGHTSTICK^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_PISTOL^</WeaponName^>
+echo           ^<Ammo value="100" /^>
+echo           ^<Flags^>InfiniteAmmo^</Flags^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_UNARMED^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo       ^</Items^>
+echo     ^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>LOADOUT_COP_L1^</Name^>
+echo       ^<Items^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_UNARMED^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_PUMPSHOTGUN^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_PISTOL^</WeaponName^>
+echo           ^<Ammo value="100" /^>
+echo           ^<Flags^>InfiniteAmmo^</Flags^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo       ^</Items^>
+echo     ^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>LOADOUT_COP_L2^</Name^>
+echo       ^<Items^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_UNARMED^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutRandom"^>
+echo           ^<Items^>
+echo             ^<Item^>
+echo               ^<Item type="CLoadOutWeapon"^>
+echo                 ^<WeaponName^>WEAPON_PISTOL^</WeaponName^>
+echo                 ^<Ammo value="100" /^>
+echo                 ^<Flags^>InfiniteAmmo^</Flags^>
+echo                 ^<ComponentNames /^>
+echo               ^</Item^>
+echo               ^<Chance value="0.250000" /^>
+echo             ^</Item^>
+echo             ^<Item^>
+echo               ^<Item type="CLoadOutWeapon"^>
+echo                 ^<WeaponName^>WEAPON_SMG^</WeaponName^>
+echo                 ^<Ammo value="100" /^>
+echo                 ^<Flags^>InfiniteAmmo^</Flags^>
+echo                 ^<ComponentNames /^>
+echo               ^</Item^>
+echo               ^<Chance value="0.750000" /^>
+echo             ^</Item^>
+echo           ^</Items^>
+echo         ^</Item^>
+echo       ^</Items^>
+echo     ^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>LOADOUT_COP_L3^</Name^>
+echo       ^<Items^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_UNARMED^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutRandom"^>
+echo           ^<Items^>
+echo             ^<Item^>
+echo               ^<Item type="CLoadOutWeapon"^>
+echo                 ^<WeaponName^>WEAPON_SMG^</WeaponName^>
+echo                 ^<Ammo value="100" /^>
+echo                 ^<Flags^>InfiniteAmmo^</Flags^>
+echo                 ^<ComponentNames /^>
+echo               ^</Item^>
+echo               ^<Chance value="0.500000" /^>
+echo             ^</Item^>
+echo             ^<Item^>
+echo               ^<Item type="CLoadOutWeapon"^>
+echo                 ^<WeaponName^>WEAPON_CARBINERIFLE^</WeaponName^>
+echo                 ^<Ammo value="100" /^>
+echo                 ^<Flags^>InfiniteAmmo^</Flags^>
+echo                 ^<ComponentNames /^>
+echo               ^</Item^>
+echo               ^<Chance value="0.500000" /^>
+echo             ^</Item^>
+echo           ^</Items^>
+echo         ^</Item^>
+echo       ^</Items^>
+echo     ^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>LOADOUT_SWAT^</Name^>
+echo       ^<Items^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_PISTOL^</WeaponName^>
+echo           ^<Ammo value="100" /^>
+echo           ^<Flags^>InfiniteAmmo^</Flags^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_CARBINERIFLE^</WeaponName^>
+echo           ^<Ammo value="100" /^>
+echo           ^<Flags^>EquipThisWeapon InfiniteAmmo^</Flags^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_UNARMED^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo       ^</Items^>
+echo     ^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>LOADOUT_SWAT_NO_LASER^</Name^>
+echo       ^<Items^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_UNARMED^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_PISTOL^</WeaponName^>
+echo           ^<Ammo value="100" /^>
+echo           ^<Flags^>InfiniteAmmo^</Flags^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_CARBINERIFLE^</WeaponName^>
+echo           ^<Ammo value="100" /^>
+echo           ^<Flags^>EquipThisWeapon InfiniteAmmo^</Flags^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo       ^</Items^>
+echo     ^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>LOADOUT_COP_SHOTGUN^</Name^>
+echo       ^<Items^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_UNARMED^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_PISTOL^</WeaponName^>
+echo           ^<Ammo value="100" /^>
+echo           ^<Flags^>InfiniteAmmo^</Flags^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_PUMPSHOTGUN^</WeaponName^>
+echo           ^<Ammo value="100" /^>
+echo           ^<Flags^>EquipThisWeapon InfiniteAmmo^</Flags^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo       ^</Items^>
+echo     ^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>LOADOUT_FIREMAN^</Name^>
+echo       ^<Items^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_UNARMED^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_FIREEXTINGUISHER^</WeaponName^>
+echo           ^<Ammo value="2000" /^>
+echo           ^<Flags^>InfiniteAmmo^</Flags^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo       ^</Items^>
+echo     ^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>LOADOUT_COP_HELI^</Name^>
+echo       ^<Items^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_UNARMED^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_PISTOL^</WeaponName^>
+echo           ^<Ammo value="100" /^>
+echo           ^<Flags^>InfiniteAmmo^</Flags^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_CARBINERIFLE^</WeaponName^>
+echo           ^<Ammo value="100" /^>
+echo           ^<Flags^>EquipThisWeapon InfiniteAmmo^</Flags^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo       ^</Items^>
+echo     ^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>LOADOUT_COP_BOAT^</Name^>
+echo       ^<Items^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_UNARMED^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_PISTOL^</WeaponName^>
+echo           ^<Ammo value="100" /^>
+echo           ^<Flags^>InfiniteAmmo^</Flags^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_MICROSMG^</WeaponName^>
+echo           ^<Ammo value="100" /^>
+echo           ^<Flags^>EquipThisWeapon InfiniteAmmo^</Flags^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo       ^</Items^>
+echo     ^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>LOADOUT_ARMY^</Name^>
+echo       ^<Items^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_UNARMED^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_CARBINERIFLE^</WeaponName^>
+echo           ^<Ammo value="100" /^>
+echo           ^<Flags^>EquipThisWeapon InfiniteAmmo^</Flags^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_PISTOL^</WeaponName^>
+echo           ^<Ammo value="100" /^>
+echo           ^<Flags^>InfiniteAmmo^</Flags^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo       ^</Items^>
+echo     ^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>LOADOUT_ANIMAL_RETRIEVER^</Name^>
+echo       ^<Items^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_ANIMAL_RETRIEVER^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo       ^</Items^>
+echo     ^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>LOADOUT_SMALL_DOG^</Name^>
+echo       ^<Items^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_SMALL_DOG^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo       ^</Items^>
+echo     ^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>LOADOUT_TIGER_SHARK^</Name^>
+echo       ^<Items^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_TIGER_SHARK^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo       ^</Items^>
+echo     ^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>LOADOUT_HAMMERHEAD_SHARK^</Name^>
+echo       ^<Items^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_HAMMERHEAD_SHARK^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo       ^</Items^>
+echo     ^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>LOADOUT_KILLER_WHALE^</Name^>
+echo       ^<Items^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_KILLER_WHALE^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo       ^</Items^>
+echo     ^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>LOADOUT_BOAR^</Name^>
+echo       ^<Items^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_BOAR^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo       ^</Items^>
+echo     ^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>LOADOUT_PIG^</Name^>
+echo       ^<Items^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_PIG^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo       ^</Items^>
+echo     ^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>LOADOUT_COYOTE^</Name^>
+echo       ^<Items^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_COYOTE^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo       ^</Items^>
+echo     ^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>LOADOUT_DEER^</Name^>
+echo       ^<Items^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_DEER^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo       ^</Items^>
+echo     ^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>LOADOUT_HEN^</Name^>
+echo       ^<Items^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_HEN^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo       ^</Items^>
+echo     ^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>LOADOUT_RABBIT^</Name^>
+echo       ^<Items^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_RABBIT^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo       ^</Items^>
+echo     ^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>LOADOUT_CAT^</Name^>
+echo       ^<Items^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_CAT^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo       ^</Items^>
+echo     ^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>LOADOUT_COW^</Name^>
+echo       ^<Items^>
+echo         ^<Item type="CLoadOutWeapon"^>
+echo           ^<WeaponName^>WEAPON_COW^</WeaponName^>
+echo           ^<Ammo value="0" /^>
+echo           ^<Flags /^>
+echo           ^<ComponentNames /^>
+echo         ^</Item^>
+echo       ^</Items^>
+echo     ^</Item^>
+echo   ^</LoadOuts^>
+echo ^</CPedInventoryLoadOutManager^>
+)>loadouts.meta
+
+set /p pathgiveweapon=<path.txt
+
+if not exist "%pathgiveweapon%\ai" echo creating ai folder
+if not exist "%pathgiveweapon%\ai" mkdir "%pathgiveweapon%\ai"
+
+
+echo moved into [35m%pathgiveweapon%\ai[37m
+move loadouts.meta "%pathgiveweapon%\ai"
+
+echo:
+
+echo [32mDone[37m
+
+ping 127.0.0.1 -n 5 > nul
+
+goto MAIN
+
+
+
+
+
+:5
+cls
+
+echo:
+echo:
+echo %l1%
+echo %l2%
+echo %l3%
+echo %l4%
+echo %l5%
+echo %l6%
+echo:
+echo:
+
+echo Build a Godmode file / More [32mgreen[37m/[34mblue[37m helth
+
+echo:
+
+
+echo do you want to create it?
+
+set /p yesno5=([32my=yes[37m/[31mn=no[37m):
+
+if %yesno5% == y goto run5
+if %yesno5% == n goto MAIN
+
+:run5
+echo:
+set /p helth=How much [32mhelth[37m? (default 200):[32m
+echo:[37m
+set /p armour=How much [34marmour[37m? (default 0):[34m
+echo:[37m
+(
+echo ^<?xml version="1.0" encoding="UTF-8"?^>
+echo ^<CHealthConfigInfoManager^>
+echo   ^<aHealthConfig^>
+echo     ^<Item^>
+echo       ^<Name^>Strong^</Name^>
+echo       ^<DefaultHealth value="%helth%.000000" /^>
+echo       ^<DefaultArmour value="%armour%.000000" /^>
+echo       ^<FatiguedHealthThreshold value="150.000000" /^>
+echo       ^<InjuredHealthThreshold value="100.000000" /^>
+echo       ^<DyingHealthThreshold value="100.000000" /^>
+echo       ^<HurtHealthThreshold value="150.000000" /^>
+echo 	  ^<DogTakedownThreshold value="150.000000" /^>
+echo 	  ^<MeleeCardinalFatalAttackCheck value="false" /^>
+echo     ^</Item^>
+echo 	^<Item^>
+echo       ^<Name^>Average^</Name^>
+echo       ^<DefaultHealth value="175.000000" /^>
+echo       ^<DefaultArmour value="000.000000" /^>
+echo       ^<FatiguedHealthThreshold value="137.500000" /^>
+echo       ^<InjuredHealthThreshold value="100.000000" /^>
+echo       ^<DyingHealthThreshold value="100.000000" /^>
+echo       ^<HurtHealthThreshold value="125.000000" /^>
+echo 	  ^<DogTakedownThreshold value="150.000000" /^>
+echo 	  ^<MeleeCardinalFatalAttackCheck value="false" /^>
+echo     ^</Item^>
+echo 	^<Item^>
+echo       ^<Name^>Weak^</Name^>
+echo       ^<DefaultHealth value="150.000000" /^>
+echo       ^<DefaultArmour value="000.000000" /^>
+echo       ^<FatiguedHealthThreshold value="125.000000" /^>
+echo       ^<InjuredHealthThreshold value="100.000000" /^>
+echo       ^<DyingHealthThreshold value="100.000000" /^>
+echo       ^<HurtHealthThreshold value="135.000000" /^>
+echo 	  ^<DogTakedownThreshold value="150.000000" /^>
+echo 	  ^<MeleeCardinalFatalAttackCheck value="true" /^>
+echo 	^</Item^>
+echo 	^<Item^>
+echo 	  ^<Name^>Animal^</Name^>
+echo 	  ^<DefaultHealth value="150.000000" /^>
+echo 	  ^<DefaultArmour value="000.000000" /^>
+echo 	  ^<FatiguedHealthThreshold value="125.000000" /^>
+echo 	  ^<InjuredHealthThreshold value="100.000000" /^>
+echo 	  ^<DyingHealthThreshold value="100.000000" /^>
+echo 	  ^<HurtHealthThreshold value="135.000000" /^>
+echo 	  ^<DogTakedownThreshold value="150.000000" /^>
+echo 	  ^<MeleeCardinalFatalAttackCheck value="false" /^>
+echo 	^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>Armour^</Name^>
+echo       ^<DefaultHealth value="200.000000" /^>
+echo       ^<DefaultArmour value="100.000000" /^>
+echo       ^<FatiguedHealthThreshold value="120.000000" /^>
+echo       ^<InjuredHealthThreshold value="100.000000" /^>
+echo       ^<DyingHealthThreshold value="100.000000" /^>
+echo       ^<HurtHealthThreshold value="150.000000" /^>
+echo 	  ^<DogTakedownThreshold value="150.000000" /^>
+echo 	  ^<MeleeCardinalFatalAttackCheck value="false" /^>
+echo     ^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>GULL^</Name^>
+echo       ^<DefaultHealth value="10.000000" /^>
+echo       ^<DefaultArmour value="0.000000" /^>
+echo       ^<FatiguedHealthThreshold value="3.000000" /^>
+echo       ^<InjuredHealthThreshold value="2.000000" /^>
+echo       ^<DyingHealthThreshold value="2.000000" /^>
+echo       ^<HurtHealthThreshold value="4.000000" /^>
+echo 	  ^<DogTakedownThreshold value="2.000000" /^>
+echo 	  ^<MeleeCardinalFatalAttackCheck value="true" /^>
+echo     ^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>Fish^</Name^>
+echo       ^<DefaultHealth value="10.000000" /^>
+echo       ^<DefaultArmour value="000.000000" /^>
+echo       ^<FatiguedHealthThreshold value="3.000000" /^>
+echo       ^<InjuredHealthThreshold value="2.000000" /^>
+echo       ^<DyingHealthThreshold value="2.000000" /^>
+echo       ^<HurtHealthThreshold value="4.000000" /^>
+echo       ^<DogTakedownThreshold value="2.000000" /^>
+echo       ^<MeleeCardinalFatalAttackCheck value="false" /^>
+echo     ^</Item^>
+echo 	^<Item^>
+echo       ^<Name^>Rat^</Name^>
+echo       ^<DefaultHealth value="10.000000" /^>
+echo       ^<DefaultArmour value="000.000000" /^>
+echo       ^<FatiguedHealthThreshold value="3.000000" /^>
+echo       ^<InjuredHealthThreshold value="2.000000" /^>
+echo       ^<DyingHealthThreshold value="2.000000" /^>
+echo       ^<HurtHealthThreshold value="4.000000" /^>
+echo       ^<DogTakedownThreshold value="2.000000" /^>
+echo       ^<MeleeCardinalFatalAttackCheck value="false" /^>
+echo     ^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>Shark^</Name^>
+echo       ^<DefaultHealth value="200.000000" /^>
+echo       ^<DefaultArmour value="0.000000" /^>
+echo       ^<FatiguedHealthThreshold value="150.000000" /^>
+echo       ^<InjuredHealthThreshold value="100.000000" /^>
+echo       ^<DyingHealthThreshold value="100.000000" /^>
+echo       ^<HurtHealthThreshold value="150.000000" /^>
+echo       ^<DogTakedownThreshold value="150.000000" /^>
+echo       ^<MeleeCardinalFatalAttackCheck value="false" /^>
+echo     ^</Item^>
+echo     ^<Item^>
+echo       ^<Name^>Humpback^</Name^>
+echo       ^<DefaultHealth value="800.000000" /^>
+echo       ^<DefaultArmour value="0.000000" /^>
+echo       ^<FatiguedHealthThreshold value="150.000000" /^>
+echo       ^<InjuredHealthThreshold value="100.000000" /^>
+echo       ^<DyingHealthThreshold value="100.000000" /^>
+echo       ^<HurtHealthThreshold value="150.000000" /^>
+echo       ^<DogTakedownThreshold value="150.000000" /^>
+echo       ^<MeleeCardinalFatalAttackCheck value="false" /^>
+echo 	  ^<Invincible value="true" /^>
+echo     ^</Item^>
+echo   ^</aHealthConfig^>
+echo   ^<DefaultSet ref="Average" /^>
+echo ^</CHealthConfigInfoManager^>
+)>pedhealth.meta
+
+set /p pathpedhelth=<path.txt
+echo moved into [35m%pathpedhelth%[37m
+move pedhealth.meta "%pathpedhelth%"
+
+echo:
+
+echo [32mDone[37m
+
+ping 127.0.0.1 -n 5 > nul
+
+goto MAIN
+
+
+
+
+:6
+cls
+
+echo:
+echo:
+echo %l1%
+echo %l2%
+echo %l3%
+echo %l4%
+echo %l5%
+echo %l6%
+echo:
+echo:
+
+echo delete all AI files that you have in your FiveM directory
+
+echo:
+
+
+echo do you want to delete all AI files?
+
+set /p yesno6=([32my=yes[37m/[31mn=no[37m):
+
+if %yesno6% == y goto run6
+if %yesno6% == n goto MAIN
+
+:run6
+
+@echo on
+set /p pathpedhelth=<path.txt
+RMDIR /s /q "%pathpedhelth%\ai\"
+del /s /q "%pathpedhelth%\pedhealth.meta"
+RMDIR /s /q "C:\Windows\Temp"
+powershell clear-recyclebin -confirm:$false
+@echo off
+ping 127.0.0.1 -n 5 > nul
+goto MAIN
+
+
+:7
+cls
+
+echo:
+echo:
+echo %l1%
+echo %l2%
+echo %l3%
+echo %l4%
+echo %l5%
+echo %l6%
+echo:
+echo:
+
+echo change game path 
+
+echo:
+
+echo current game path:
+type [35mpath.txt[37m
+echo:
+echo do you want to edit it?
+
+set /p yesno7=([32my=yes[37m/[31mn=no[37m):
+
+if %yesno7% == y goto run7
+if %yesno7% == n goto MAIN
+
+:run7
+echo:
+echo:
+echo Enter FiveM data path:
+echo Example: [35mZ:\FiveM\FiveM.app\citizen\common\data[37m
+echo:
+set /p path=path:[35m
+[37m
+echo %path%> path.txt
+
+if exist %path% goto MAIN
+if not exist %path% goto FMCWrong
+
+goto MAIN
