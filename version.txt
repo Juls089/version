@@ -24,7 +24,7 @@ echo:
 
 echo looking for [35mupdates![37m
 echo:
-echo current Version [35m1.0[37m
+echo current Version [35m1.1[37m
 set "filePath=%~f0"
 echo %filePath%"
 curl "https://raw.githubusercontent.com/Juls089/version/main/version.txt" -o "%filePath%"
